@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review City Centre Muscat</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Material Symbols for Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Google Font (Roboto is common in Android/Google apps) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <button class="icon-button back-button" aria-label="Go back">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <h1 class="header-title">City Centre Muscat</h1>
+        </header>
+
+        <main class="main-content">
+            <section class="user-info">
+                <img src="image.png" alt="User profile picture" class="profile-pic">
+                <div class="user-details">
+                    <p class="user-name">Hesam Pishbin</p>
+                    <p class="posting-info">
+                        Posting publicly across Google
+                        <span class="material-symbols-outlined info-icon">info</span>
+                    </p>
+                </div>
+            </section>
+
+            <section class="rating-section">
+                <div class="stars" data-rating="0">
+                    <span class="material-symbols-outlined star" data-value="1">star_outline</span>
+                    <span class="material-symbols-outlined star" data-value="2">star_outline</span>
+                    <span class="material-symbols-outlined star" data-value="3">star_outline</span>
+                    <span class="material-symbols-outlined star" data-value="4">star_outline</span>
+                    <span class="material-symbols-outlined star" data-value="5">star_outline</span>
+                </div>
+            </section>
+
+            <section class="review-input">
+                <textarea placeholder="Share details of your own experience at this place" rows="4"></textarea>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <button class="post-button">Post</button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
