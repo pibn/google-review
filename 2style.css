@@ -66,31 +66,39 @@ html, body {
 /* User Info Section */
 .user-info {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    margin-bottom: 190px; /* Increased margin to create space between username and stars */
+    align-items: center;
+    margin-bottom: 24px;
 }
 
 .profile-pic {
-    width: 100px; /* Larger size */
-    height: 100px; /* Larger size */
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    margin-bottom: 16px; /* Space between photo and text */
+    margin-right: 12px;
     object-fit: cover; /* Ensures image covers the area */
 }
 
+.user-details {
+    line-height: 1.4;
+}
+
 .user-name {
-    font-weight: 700; /* Make name bolder */
-    font-size: 1.5rem; /* Increase font size (~24px) */
+    font-weight: 500;
     color: #ffffff;
-    text-align: center; /* Center text */
-    margin-bottom: 8px; /* Space between name and posting info */
 }
 
 .posting-info {
-    font-size: 1rem; /* Increase font size (~16px) */
+    font-size: 0.8rem; /* ~13px */
     color: #a0a0a0; /* Slightly dimmer grey */
-    text-align: center; /* Center text */
+    display: flex;
+    align-items: center;
+}
+
+.info-icon {
+    font-size: 16px; /* Match icon size */
+    margin-left: 4px;
+    color: #a0a0a0; /* Match text color */
+    vertical-align: middle; /* Align icon better with text */
 }
 
 /* Rating Section */
