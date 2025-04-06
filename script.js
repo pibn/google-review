@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (lastSegment) {
-        const baseUrl = `https://raw.githubusercontent.com/pibn/google-review/main/files/${lastSegment}/image`;
+        const baseUrl = `https://raw.githubusercontent.com/pibn/google-review/main/assets/${lastSegment}/image`;
         const formats = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
         
         tryLoadImage(baseUrl, formats).then(imageUrl => {
