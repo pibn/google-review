@@ -1,4 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Add profile picture URL logic at the start
+    const profilePic = document.getElementById('profilePic');
+    const path = window.location.pathname;
+    const urlSegments = path.split('/');
+    const lastSegment = urlSegments[urlSegments.length - 1];
+    
+    const tryLoadImage = async (baseUrl, formats) => {
+        for (const format of formats) {
+            try {
+                const response = await fetch(`${baseUrl}.${format}`);
+                if (response.ok) {
+                    return `${baseUrl}.${format}`;
+                }
+            } catch (e) {
+                continue;
+            }
+        }
+        return 'https://raw.githubusercontent.com/pibn/google-review/main/image.jpg'; // fallback
+    };
+
+    if (lastSegment) {
+        const baseUrl = `https://raw.githubusercontent.com/pibn/google-review/main/files/${lastSegment}/image`;
+        const formats = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+        
+        tryLoadImage(baseUrl, formats).then(imageUrl => {
+            profilePic.src = imageUrl;
+        });
+    } else {
+        profilePic.src = 'https://raw.githubusercontent.com/pibn/google-review/main/image.jpg'; // fallback image
+    }
+
     const starsContainer = document.querySelector('.stars');
     const stars = starsContainer.querySelectorAll('.star');
     const postButton = document.querySelector('.post-button'); // Get post button

@@ -61,6 +61,7 @@ html, body {
     flex-grow: 1; /* Takes remaining vertical space */
     padding: 16px 20px;
     overflow-y: auto; /* Allows scrolling if content exceeds height */
+    margin-top: 40px; /* Space for header */
 }
 
 /* User Info Section */
@@ -68,7 +69,7 @@ html, body {
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
-    margin-bottom: 190px; /* Increased margin to create space between username and stars */
+    margin-bottom: 100px; /* Increased margin to create space between username and stars */
 }
 
 .profile-pic {
@@ -88,9 +89,19 @@ html, body {
 }
 
 .posting-info {
-    font-size: 1rem; /* Increase font size (~16px) */
+    font-size: 0.8rem; /* ~13px */
     color: #a0a0a0; /* Slightly dimmer grey */
-    text-align: center; /* Center text */
+    display: flex;
+    align-items: center; /* Align icon with text */
+    justify-content: center; /* Center text and icon together */
+}
+
+.info-icon {
+    font-size: 0.7rem; /* Reduced icon size */
+    margin-left: 4px; /* Space between text and icon */
+    color: #a0a0a0; /* Match text color */
+    display: inline-flex; /* Use flex for better alignment */
+    align-items: center; /* Vertically align icon with text */
 }
 
 /* Rating Section */
