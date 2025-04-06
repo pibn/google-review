@@ -205,3 +205,25 @@ html, body {
     cursor: pointer;
     display: block;
 }
+
+.powered-by {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.powered-by a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.futuric-logo {
+    height: 10px;
+    width: auto;
+    margin-left: 4px;
+    margin-right: 0;
+    transform: translateY(-1px);
+}
