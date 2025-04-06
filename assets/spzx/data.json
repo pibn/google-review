@@ -1,9 +1,9 @@
 {
   "id": "proj-001",
-  "name": "Project 1",
+  "name": "Kabab Bonab Original",
   "date": "2023-01-01",
   "link": "https://example.com/project1",
   "description": "This is a description of project 1.",
-  "thumbnail": "thumbnail.jpg",
+  "thumbnail": "image.jpg",
   "category": "web-development"
 }

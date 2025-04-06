@@ -91,22 +91,18 @@ html, body {
 .posting-info {
     font-size: 0.8rem;
     color: #a0a0a0;
-    display: flex; /* Changed to flex */
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    height: 20px; /* Set explicit height */
-}
-
-.info-icon {
-    font-size: 16px !important;
+    text-align: center;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1px; /* Fine-tune vertical position */
-    line-height: 1;
-    width: auto; /* Remove fixed width */
-    height: auto; /* Remove fixed height */
+    gap: 4px;
+}
+
+.info-icon {
+    font-size: 14px !important;
+    color: #a0a0a0;
+    font-variation-settings: 'FILL' 0, 'wght' 600;
 }
 
 /* Rating Section */
