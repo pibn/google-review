@@ -69,7 +69,7 @@ html, body {
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
-    margin-bottom: 100px; /* Increased margin to create space between username and stars */
+    margin-bottom: 50px; /* Increased margin to create space between username and stars */
 }
 
 .profile-pic {
@@ -89,19 +89,24 @@ html, body {
 }
 
 .posting-info {
-    font-size: 0.8rem; /* ~13px */
-    color: #a0a0a0; /* Slightly dimmer grey */
-    display: flex;
-    align-items: center; /* Align icon with text */
-    justify-content: center; /* Center text and icon together */
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    display: flex; /* Changed to flex */
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 20px; /* Set explicit height */
 }
 
 .info-icon {
-    font-size: 0.7rem; /* Reduced icon size */
-    margin-left: 4px; /* Space between text and icon */
-    color: #a0a0a0; /* Match text color */
-    display: inline-flex; /* Use flex for better alignment */
-    align-items: center; /* Vertically align icon with text */
+    font-size: 16px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px; /* Fine-tune vertical position */
+    line-height: 1;
+    width: auto; /* Remove fixed width */
+    height: auto; /* Remove fixed height */
 }
 
 /* Rating Section */

@@ -1,39 +1,40 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Add profile picture URL logic at the start
-    const profilePic = document.getElementById('profilePic');
+document.addEventListener('DOMContentLoaded', async () => {
     const path = window.location.pathname;
     const urlSegments = path.split('/');
     const lastSegment = urlSegments[urlSegments.length - 1];
-    
-    const tryLoadImage = async (baseUrl, formats) => {
-        for (const format of formats) {
-            try {
-                const response = await fetch(`${baseUrl}.${format}`);
-                if (response.ok) {
-                    return `${baseUrl}.${format}`;
-                }
-            } catch (e) {
-                continue;
+    let userData = null;
+
+    // Fetch user data from JSON
+    const fetchUserData = async () => {
+        try {
+            const response = await fetch(`https://raw.githubusercontent.com/pibn/google-review/main/assets/${lastSegment}/data.json`);
+            if (response.ok) {
+                return await response.json();
             }
+        } catch (e) {
+            console.error('Error fetching user data:', e);
         }
-        return 'https://raw.githubusercontent.com/pibn/google-review/main/image.jpg'; // fallback
+        return null;
     };
 
+    // Initialize user data
     if (lastSegment) {
-        const baseUrl = `https://raw.githubusercontent.com/pibn/google-review/main/assets/${lastSegment}/image`;
-        const formats = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-        
-        tryLoadImage(baseUrl, formats).then(imageUrl => {
-            profilePic.src = imageUrl;
-        });
-    } else {
-        profilePic.src = 'https://raw.githubusercontent.com/pibn/google-review/main/image.jpg'; // fallback image
+        userData = await fetchUserData();
+        if (userData) {
+            // Update profile picture
+            const profilePic = document.getElementById('profilePic');
+            profilePic.src = `https://raw.githubusercontent.com/pibn/google-review/main/assets/${lastSegment}/${userData.thumbnail}`;
+            
+            // Update user name
+            const userName = document.querySelector('.user-name');
+            userName.textContent = userData.name;
+        }
     }
 
     const starsContainer = document.querySelector('.stars');
     const stars = starsContainer.querySelectorAll('.star');
-    const postButton = document.querySelector('.post-button'); // Get post button
-    const reviewInput = document.querySelector('.review-input'); // Get review input container
+    const postButton = document.querySelector('.post-button');
+    const reviewInput = document.querySelector('.review-input');
 
     let currentRating = 0;
 
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateStars(currentRating); // Permanently set the rating
 
             if (currentRating >= 3) {
-                window.location.href = 'https://x.com'; // Redirect for 3-5 stars
+                window.location.href = userData?.link || 'https://x.com'; // Use link from JSON or fallback
             } else if (currentRating <= 2) {
                 reviewInput.classList.add('active'); // Show text box
                 postButton.classList.add('active'); // Show post button
