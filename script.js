@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // Hides all material icons by default, Shows them only after fonts are fully loaded
+    document.fonts.ready.then(() => {
+        document.documentElement.classList.add('fonts-loaded');
+    });
+
     const path = window.location.pathname;
     const urlSegments = path.split('/');
     const lastSegment = urlSegments[urlSegments.length - 1];
@@ -83,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             updateStars(currentRating); // Permanently set the rating
 
             if (currentRating >= 3) {
-                window.location.href = userData?.link || 'https://x.com'; // Use link from JSON or fallback
+                window.location.href = userData?.link || 'https://maps.google.com'; // Use link from JSON or fallback
             } else if (currentRating <= 2) {
                 reviewInput.classList.add('active'); // Show text box
                 postButton.classList.add('active'); // Show post button

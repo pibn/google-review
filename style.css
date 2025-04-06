@@ -5,11 +5,42 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Default light mode colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #202124;
+    --text-secondary: #5f6368;
+    --border-color: #dadce0;
+    --star-empty: #dadce0;
+    --star-filled: #fbbc05;
+    --button-inactive: #f1f3f4;
+    --button-inactive-text: #5f6368;
+    --button-active: #1a73e8;
+    --button-active-text: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #121212;
+        --bg-secondary: #1f1f1f;
+        --text-primary: #ffffff;
+        --text-secondary: #a0a0a0;
+        --border-color: #303030;
+        --star-empty: #707070;
+        --star-filled: #fbbc05;
+        --button-inactive: #3c3f43;
+        --button-inactive-text: #909396;
+        --button-active: #8ab4f8;
+        --button-active-text: #202124;
+    }
+}
+
 html, body {
     height: 100%;
     font-family: 'Roboto', sans-serif;
-    background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light grey text */
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
 }
 
 /* App Container */
@@ -19,41 +50,23 @@ html, body {
     height: 100%;
     max-width: 600px; /* Max width for larger screens */
     margin: 0 auto; /* Center on larger screens */
-    background-color: #1f1f1f; /* Slightly lighter dark bg for content area */
+    background-color: var(--bg-secondary);
 }
 
 /* Header */
 .app-header {
     display: flex;
     align-items: center;
-    padding: 10px 12px;
-    background-color: #1f1f1f; /* Match container */
-    /* border-bottom: 1px solid #303030; Optional separator */
-}
-
-.icon-button {
-    background: none;
-    border: none;
-    color: #e0e0e0;
-    cursor: pointer;
-    padding: 8px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-.icon-button .material-symbols-outlined {
-    font-size: 24px;
-}
-
-.back-button {
-    margin-right: 16px;
+    padding: 10px 12px;
+    background-color: var(--bg-secondary);
 }
 
 .header-title {
     font-size: 1.25rem; /* ~20px */
     font-weight: 500;
-    color: #ffffff;
+    color: var(--text-primary);
+    text-align: center;
 }
 
 /* Main Content Area */
@@ -83,14 +96,14 @@ html, body {
 .user-name {
     font-weight: 700; /* Make name bolder */
     font-size: 1.5rem; /* Increase font size (~24px) */
-    color: #ffffff;
+    color: var(--text-primary);
     text-align: center; /* Center text */
     margin-bottom: 8px; /* Space between name and posting info */
 }
 
 .posting-info {
     font-size: 0.8rem;
-    color: #a0a0a0;
+    color: var(--text-secondary);
     text-align: center;
     height: 20px;
     display: flex;
@@ -101,7 +114,7 @@ html, body {
 
 .info-icon {
     font-size: 14px !important;
-    color: #a0a0a0;
+    color: var(--text-secondary);
     font-variation-settings: 'FILL' 0, 'wght' 600;
 }
 
@@ -115,7 +128,7 @@ html, body {
 
 .stars .star {
     font-size: 36px; /* Larger stars */
-    color: #707070; /* Empty star color */
+    color: var(--star-empty);
     cursor: pointer;
     margin: 0 4px; /* Spacing between stars */
     transition: color 0.2s ease; /* Smooth hover/fill */
@@ -125,7 +138,7 @@ html, body {
 
 .stars .star.filled,
 .stars .star:hover {
-    color: #fbbc05; /* Filled star color (Google yellow) */
+    color: var(--star-filled);
      font-variation-settings: 'FILL' 1; /* Fill the star */
 }
 
@@ -142,43 +155,43 @@ html, body {
 
 .review-input textarea {
     width: 100%;
-    background-color: transparent; /* Match background */
-    border: none;
-    /* border-bottom: 1px solid #505050; Optional subtle underline */
-    color: #e0e0e0;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
     font-size: 1rem; /* ~16px */
-    padding: 12px 0; /* Padding top/bottom */
+    padding: 12px; /* Padding top/bottom */
     resize: none; /* Disable textarea resizing */
     font-family: inherit; /* Use the same font */
-    min-height: 60px; /* Minimum height */
+    min-height: 100px; /* Minimum height */
 }
 
 .review-input textarea::placeholder {
-    color: #707070; /* Placeholder text color */
+    color: var(--text-secondary);
     font-size: 1rem;
 }
 
 .review-input textarea:focus {
     outline: none; /* Remove default focus outline */
-    /* border-bottom-color: #8ab4f8; Optional: highlight underline on focus */
+    /* border-bottom-color: var(--button-active); Optional: highlight underline on focus */
 }
 
 
 /* Footer */
 .app-footer {
     padding: 16px 20px;
-    background-color: #1f1f1f; /* Match container */
-    /* border-top: 1px solid #303030; Optional separator */
+    background-color: var(--bg-secondary);
+    /* border-top: 1px solid var(--border-color); Optional separator */
 }
 
 /* Post Button */
 .post-button {
     width: 100%;
     padding: 12px 16px;
-    background-color: #3c3f43; /* Slightly lighter grey than add photos */
+    background-color: var(--button-inactive);
     border: none;
-    border-radius: 8px; /* Less rounded than add photos */
-    color: #909396; /* Dimmer text color for inactive state - adjust if needed */
+    border-radius: 100px; /* Less rounded than add photos */
+    color: var(--button-inactive-text);
     font-size: 0.9rem;
     font-weight: 500;
     cursor: not-allowed; /* Indicate inactive state */
@@ -187,8 +200,8 @@ html, body {
 }
 
 .post-button.active {
-    background-color: #8ab4f8; /* Google Blue */
-    color: #202124; /* Dark text on blue background */
+    background-color: var(--button-active);
+    color: var(--button-active-text);
     cursor: pointer;
     display: block;
 }
