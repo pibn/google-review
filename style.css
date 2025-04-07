@@ -34,6 +34,11 @@
         --button-active: #8ab4f8;
         --button-active-text: #202124;
     }
+
+    /* Make logo white in dark mode */
+    .futuric-logo {
+        filter: invert(1);
+    }
 }
 
 html, body {
@@ -226,4 +231,38 @@ html, body {
     margin-left: 4px;
     margin-right: 0;
     transform: translateY(-1px);
+    /* filter: none; /* Default filter (no inversion in light mode) */
+}
+
+/* Snackbar styles */
+.snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 100px;
+    transform: translateX(-50%);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    border: 1px solid var(--border-color);
+}
+
+.snackbar.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 100px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 100px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
 }

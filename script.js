@@ -104,4 +104,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Initial check for post button state (in case of pre-filled data, though not applicable here)
     checkPostButton();
+
+    // Add these functions after the existing code inside DOMContentLoaded
+    function showSnackbar() {
+        const snackbar = document.getElementById("snackbar");
+        snackbar.className = "snackbar show";
+        setTimeout(() => { 
+            snackbar.className = snackbar.className.replace("show", ""); 
+        }, 3000);
+    }
+
+    // Modify the post button event listener
+    postButton.addEventListener('click', () => {
+        if (postButton.classList.contains('active')) {
+            const textarea = document.querySelector('.review-input textarea');
+            textarea.value = ''; // Clear the textarea
+            showSnackbar(); // Show the snackbar
+            postButton.classList.remove('active'); // Disable the button
+        }
+    });
 });
