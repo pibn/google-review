@@ -1,0 +1,9 @@
+{
+  "id": "proj-001",
+  "name": "A Sushi Shop",
+  "date": "2023-01-01",
+  "link": "https://search.google.com/local/writereview?placeid=ChIJz9OkA1FpXz4RQEPb6LsMlcI",
+  "description": "This is a description of project 1.",
+  "thumbnail": "image.png",
+  "category": "web-development"
+}
